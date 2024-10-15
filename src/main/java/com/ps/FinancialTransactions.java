@@ -1,36 +1,35 @@
 package com.ps;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.FileReader;
-import java.io.IOException;
 
 
 public class FinancialTransactions {
 
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<FinancialTransactions> transactions = new ArrayList<>();
+    static Scanner inputScanner = new Scanner(System.in);
+    static ArrayList<TransactionRecord> transactions = new ArrayList<TransactionRecord>();
 
 
     public static void main(String[] args) {
         loadTransactions();
         loadTransactionsFromFile();
-    }
 
+    }
 
     // ***** BEGIN Create menu Instructions *****
 
     // Initialize the command variable (int mainMenuCommand;)
+
     int mainMenuCommand;
     // Create a do-while loop with a conditional for the command= home screen
 
-    do{
+    do {
         // display the menu
         System.out.println("1) Would you like too add deposit?");
         System.out.println("2) Would you like to make payment (Debit)?");
@@ -66,14 +65,15 @@ public class FinancialTransactions {
 
     }
 
+
     public static void loadTransactions() {
 
         LocalDate date = LocalDate.parse("2023-04-15");
         LocalTime time = LocalTime.parse("10:13:25");
 
-        LearnToCode_Capstones transcation1 = new LearnToCode_Capstones("date", "time", "ergonomic keyboard", "Amazon", -89.50);
-        HashSet<LearnToCode_Capstones> alltrans;
-        alltrans.add(transcation1);
+        TransactionRecord transcation1 = new TransactionRecord("date", "time", "ergonomic keyboard", "Amazon", -89.50);
+
+        transactions.add(transcation1);
     }
 
     public static void loadTransactionsFromFile() {
@@ -103,9 +103,35 @@ public class FinancialTransactions {
 
                 double amount = Double.parseDouble(trans[4]);
 
+                transactions.add(new TransactionRecord(date, time, description, vendor, amount));
+
             }
+            bufferedReader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+    public static void adddeposit() {
+        System.out.print("command to add an deposit");
+
+        System.out.print("Please enter today's date");
+        String date = inputScanner.nextLine();
+
+        System.out.println("Please enter the time");
+        String time = inputScanner.nextLine();
+
+        System.out.println("Please enter the description");
+        String description = inputScanner.nextLine();
+
+        System.out.println("Please enter the vendor");
+        String vendor = inputScanner.nextLine();
+
+        System.out.println("Please enter the amount");
+        double amount = inputScanner.nextInt();
+
+    }
+
 }
 
 

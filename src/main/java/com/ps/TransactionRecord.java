@@ -3,7 +3,7 @@ package com.ps;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class LearnToCode_Capstones {
+public class TransactionRecord {
 
 
     private LocalDate date;
@@ -12,7 +12,7 @@ public class LearnToCode_Capstones {
     private String vendor;
     private double amount;
 
-    public LearnToCode_Capstones(String date, String time, String ergonomicKeyboard, String amazon, double amount) {
+    public TransactionRecord(String date, String time, String ergonomicKeyboard, String amazon, double amount) {
     }
 
     public LocalDate getDate() {
@@ -66,7 +66,7 @@ public class LearnToCode_Capstones {
                 '}';
     }
 
-    public LearnToCode_Capstones(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+    public TransactionRecord(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
         this.time = time;
         this.description = description;
