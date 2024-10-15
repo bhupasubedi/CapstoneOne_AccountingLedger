@@ -6,20 +6,11 @@ import java.time.LocalTime;
 public class LearnToCode_Capstones {
 
 
-    LocalDate date;
-    LocalTime time;
-    String description;
-    String vendor;
-    int amount;
-
-
-    public LearnToCode_Capstones(LocalDate date, LocalTime time, String description, String vendor, int amount) {
-        this.date = date;
-        this.time = time;
-        this.description = description;
-        this.vendor = vendor;
-        this.amount = amount;
-    }
+    private LocalDate date;
+    private LocalTime time;
+    private String description;
+    private String vendor;
+    private double amount;
 
     public LocalDate getDate() {
         return date;
@@ -53,11 +44,11 @@ public class LearnToCode_Capstones {
         this.vendor = vendor;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -71,4 +62,16 @@ public class LearnToCode_Capstones {
                 ", amount=" + amount +
                 '}';
     }
+
+    public LearnToCode_Capstones(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+        this.date = date;
+        this.time = time;
+        this.description = description;
+        this.vendor = vendor;
+        this.amount = amount;
+
+
+
+    }
 }
+
