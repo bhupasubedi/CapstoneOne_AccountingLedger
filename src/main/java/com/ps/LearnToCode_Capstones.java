@@ -12,6 +12,9 @@ public class LearnToCode_Capstones {
     private String vendor;
     private double amount;
 
+    public LearnToCode_Capstones(String date, String time, String ergonomicKeyboard, String amazon, double amount) {
+    }
+
     public LocalDate getDate() {
         return date;
     }
