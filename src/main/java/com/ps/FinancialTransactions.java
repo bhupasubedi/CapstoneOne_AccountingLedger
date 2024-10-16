@@ -121,7 +121,7 @@ public class FinancialTransactions {
     public static void addDeposit() {
 
 
-        System.out.print("Please enter today's date");
+        System.out.print("Please enter today's date ");
         String date = inputScanner.nextLine();
 
         System.out.println("Please enter the time");
@@ -158,8 +158,32 @@ public class FinancialTransactions {
     }
 
     public static void  makePayment(){
-        System.out.println();
+        int subMenuCommand;
 
+        System.out.println("1) What is your debit card number?");
+        String cardNumber = inputScanner.nextLine();
+
+        System.out.println("2) What is the name on the debit card?");
+        String nameonCard = inputScanner.nextLine();
+
+        System.out.println("3) What is the expiration date of your debit card? (Please enter in MM/YY format)");
+        String expirationDate = inputScanner.nextLine();
+
+        System.out.println("4) What is the CVV number on the back of your debit card?");
+        String cvvNumber = inputScanner.nextLine();
+
+        System.out.println("5) How much would you like to pay?");
+        double payment = inputScanner.nextInt();
+        inputScanner.nextLine();
+
+        System.out.println("6) What is the billing address associated with your debit card? (Street, City, State, Zip Code)");
+        String address = inputScanner.nextLine();
+
+
+        System.out.println("7)What is your contact phone number or email address for confirmation?");
+        String emailorPhone = inputScanner.nextLine();
+
+        System.out.println("0) Back");
 
 
     }
