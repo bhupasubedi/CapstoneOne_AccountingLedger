@@ -22,21 +22,14 @@ public class FinancialTransactions {
 
         // ***** BEGIN Create menu Instructions *****
 
-        // Initialize the command variable (int mainMenuCommand;)
-
         int mainMenuCommand;
-        // Create a do-while loop with a conditional for the command= home screen
 
         do {
             // display the menu
             System.out.println("1) Would you like to add deposit? ");
-
-
             System.out.println("2) Would you like to make payment (Debit)?");
             System.out.println("3) Display the screen");
             System.out.println("0) Exit ");
-
-
 
             try {
                 mainMenuCommand = scanner.nextInt();
@@ -44,7 +37,6 @@ public class FinancialTransactions {
                 System.out.println("Invalid input, please enter the number.");
                 mainMenuCommand = 0;
             }
-
 
             switch (mainMenuCommand) {
                 case 1:
@@ -157,8 +149,7 @@ public class FinancialTransactions {
         }
     }
 
-    public static void  makePayment(){
-        int subMenuCommand;
+    public static void makePayment() {
 
         System.out.println("1) What is your debit card number?");
         String cardNumber = inputScanner.nextLine();
@@ -183,10 +174,83 @@ public class FinancialTransactions {
         System.out.println("7)What is your contact phone number or email address for confirmation?");
         String emailorPhone = inputScanner.nextLine();
 
-        System.out.println("0) Back");
+        //need to work on it
 
+        System.out.println("0) Back");
+        System.out.print("Command: ");
 
     }
 
+    public static void Ledger() {
+
+        int subMenuCommand;
+
+        do {
+            //// display the sub menu options
+
+            System.out.println("Welcome to the Ledger System! Please choose an option:");
+
+            System.out.println("1) Display all entries ");
+            System.out.println("2) Display only deposits");
+            System.out.println("3) Display the negative balance");
+            System.out.println("4) Show reports");
+            System.out.println("5) Go back to the previous screen");
+            System.out.println("6) Go to the home page");
+
+            System.out.println("0) Back");
+            System.out.print("Command: ");
+
+
+            subMenuCommand = inputScanner.nextInt();
+            switch (subMenuCommand) {
+                case 1:
+                    displayAllEntries();
+                    break;
+                case 2:
+                    displayDepositsOnly();
+                    break;
+                case 3:
+                    displayNegativeBalance();
+                    break;
+                case 4:
+                    ShowReports();
+                    break;
+                case 5:
+                    previousScreen();
+                    break;
+                case 6:
+                    homePage();
+                    break;
+                case 0:
+                    System.out.println("Going back to the main menu...");
+                    break;
+                default:
+                    System.out.println("Command not found. Try again");
+            }
+
+        } while (subMenuCommand != 0);
+
+    }
+
+public static void displayAllEntries (){
+
 }
 
+public static void displayDepositsOnly (){
+
+}
+public static void  displayNegativeBalance (){
+
+}
+ public static void ShowReports (){
+
+ }
+
+ public static void previousScreen () {
+
+ }
+
+ public static void  homePage() {
+
+ }
+}
