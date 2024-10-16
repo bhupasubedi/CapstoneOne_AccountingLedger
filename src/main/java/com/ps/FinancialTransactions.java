@@ -1,6 +1,8 @@
 package com.ps;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -17,54 +19,58 @@ public class FinancialTransactions {
 
 
     public static void main(String[] args) {
-        loadTransactions();
-        loadTransactionsFromFile();
 
-    }
+        // ***** BEGIN Create menu Instructions *****
 
-    // ***** BEGIN Create menu Instructions *****
+        // Initialize the command variable (int mainMenuCommand;)
 
-    // Initialize the command variable (int mainMenuCommand;)
+        int mainMenuCommand;
+        // Create a do-while loop with a conditional for the command= home screen
 
-    int mainMenuCommand;
-    // Create a do-while loop with a conditional for the command= home screen
+        do {
+            // display the menu
+            System.out.println("1) Would you like to add deposit? ");
 
-    do {
-        // display the menu
-        System.out.println("1) Would you like too add deposit?");
-        System.out.println("2) Would you like to make payment (Debit)?");
-        System.out.println("3) Display the screen");
-        System.out.println("0) Exit ");
-        System.out.println("command not found! Try again");
 
-        try {
-            mainMenuCommand = scanner.nextInt();
-        } catch (InputMismatchException ime) {
+            System.out.println("2) Would you like to make payment (Debit)?");
+            System.out.println("3) Display the screen");
+            System.out.println("0) Exit ");
 
-            mainMenuCommand = 0;
+
+
+            try {
+                mainMenuCommand = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println("Invalid input, please enter the number.");
+                mainMenuCommand = 0;
+            }
 
 
             switch (mainMenuCommand) {
                 case 1:
-                    adddeposit();
+                    addDeposit();
                     break;
                 case 2:
-                    makepayment();
+                    makePayment();
                     break;
                 case 3:
-                    displaymenu();
+//                     displayMenu();
                     break;
                 case 0:
                     System.out.println("Exiting");
                     break;
                 default:
                     System.out.println("Command not found, please try again");
+
             }
-        }
-        while (mainMenuCommand != 0) ;
+
+        } while (mainMenuCommand != 0);
+
+
+        loadTransactions();
+        loadTransactionsFromFile();
 
     }
-
 
     public static void loadTransactions() {
 
@@ -112,8 +118,8 @@ public class FinancialTransactions {
         }
     }
 
-    public static void adddeposit() {
-        System.out.print("command to add an deposit");
+    public static void addDeposit() {
+
 
         System.out.print("Please enter today's date");
         String date = inputScanner.nextLine();
@@ -130,9 +136,33 @@ public class FinancialTransactions {
         System.out.println("Please enter the amount");
         double amount = inputScanner.nextInt();
 
+        TransactionRecord transaction = new TransactionRecord(date, time, description, vendor, amount);
+        transactions.add(transaction);
+
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transaction.csv", true));
+            bufferedWriter.write(String.format("%s|%s|%s|%s|%.2f",
+                    transaction.getDate(),
+                    transaction.getTime(),
+                    transaction.getDescription(),
+                    transaction.getVendor(),
+                    transaction.getAmount()
+
+            ));
+            bufferedWriter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void  makePayment(){
+        System.out.println();
+
+
+
     }
 
 }
-
-
 
