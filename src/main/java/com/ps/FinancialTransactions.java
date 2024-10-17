@@ -24,6 +24,12 @@ public class FinancialTransactions {
 
         // ***** BEGIN Create menu Instructions *****
 
+        displayHomeMenu();
+
+
+    }
+
+    private static void displayHomeMenu() {
         int mainMenuCommand;
         do {
             // display the menu
@@ -60,8 +66,6 @@ public class FinancialTransactions {
             }
 
         } while (mainMenuCommand != 0);
-
-
     }
 
     public static void loadTransactionsFromFile() {
@@ -126,7 +130,7 @@ public class FinancialTransactions {
 
         System.out.println("Please enter the amount");
         inputScanner = new Scanner(System.in);
-        double amount = inputScanner.nextInt();
+        double amount = inputScanner.nextDouble();
 
         TransactionRecord transaction = new TransactionRecord(localDate, localTime, description, vendor, amount);
         transactions.add(transaction);
@@ -175,7 +179,7 @@ public class FinancialTransactions {
 
         System.out.println("Please enter the amount");
         inputScanner = new Scanner(System.in);
-        double amount = inputScanner.nextInt();
+        double amount = inputScanner.nextDouble();
 
         TransactionRecord transaction = new TransactionRecord(localDate, localTime, description, vendor, amount);
         transactions.add(transaction);
@@ -281,7 +285,6 @@ public class FinancialTransactions {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
-            System.out.println("5) Go back to the previous screen");
             System.out.println("6) Go to the home page");
 
             System.out.println("0) Back");
@@ -307,7 +310,12 @@ public class FinancialTransactions {
                     searchbyVendor();
                     break;
                 case 0:
+                    System.out.println("Going back..");
+                    break;
+                case 6:
                     System.out.println("Going back to the main menu...");
+                    newMenuCommand = 0;
+                    displayHomeMenu();
                     break;
                 default:
                     System.out.println("Command not found. Try again");
