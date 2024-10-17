@@ -12,7 +12,12 @@ public class TransactionRecord {
     private String vendor;
     private double amount;
 
-    public TransactionRecord(String date, String time, String ergonomicKeyboard, String amazon, double amount) {
+    public TransactionRecord(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+        this.date = date;
+        this.time = time;
+        this.description = description;
+        this.vendor = vendor;
+        this.amount = amount;
     }
 
     public LocalDate getDate() {
@@ -52,15 +57,6 @@ public class TransactionRecord {
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-
-    public TransactionRecord(LocalDate date, LocalTime time, String description, String vendor, double amount) {
-        this.date = date;
-        this.time = time;
-        this.description = description;
-        this.vendor = vendor;
         this.amount = amount;
     }
 

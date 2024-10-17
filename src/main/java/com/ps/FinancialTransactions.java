@@ -14,8 +14,8 @@ import java.io.FileReader;
 
 public class FinancialTransactions {
 
-    static Scanner scanner = new Scanner(System.in);
-    static Scanner inputScanner = new Scanner(System.in);
+    static Scanner scanner;
+    static Scanner inputScanner;
     static ArrayList<TransactionRecord> transactions = new ArrayList<TransactionRecord>();
 
 
@@ -25,13 +25,14 @@ public class FinancialTransactions {
         // ***** BEGIN Create menu Instructions *****
 
         int mainMenuCommand;
-
         do {
             // display the menu
             System.out.println("1) Would you like to add deposit? ");
             System.out.println("2) Would you like to make payment (Debit)?");
-            System.out.println("3) Display the screen");
+            System.out.println("3) Ledger screen");
             System.out.println("0) Exit ");
+
+            scanner = new Scanner(System.in);
 
             try {
                 mainMenuCommand = scanner.nextInt();
@@ -100,30 +101,40 @@ public class FinancialTransactions {
     }
 
     public static void addDeposit() {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 
-        System.out.print("Please enter today's date ");
+        System.out.println("Please enter today's date ");
+        inputScanner = new Scanner(System.in);
         String date = inputScanner.nextLine();
+        LocalDate localDate = LocalDate.parse(date, dateFormatter);
+
 
         System.out.println("Please enter the time");
+        inputScanner = new Scanner(System.in);
         String time = inputScanner.nextLine();
+        LocalTime localTime = LocalTime.parse(time, timeFormatter);
 
         System.out.println("Please enter the description");
+        inputScanner = new Scanner(System.in);
         String description = inputScanner.nextLine();
 
         System.out.println("Please enter the vendor");
+        inputScanner = new Scanner(System.in);
         String vendor = inputScanner.nextLine();
 
         System.out.println("Please enter the amount");
+        inputScanner = new Scanner(System.in);
         double amount = inputScanner.nextInt();
 
-        TransactionRecord transaction = new TransactionRecord(date, time, description, vendor, amount);
+        TransactionRecord transaction = new TransactionRecord(localDate, localTime, description, vendor, amount);
         transactions.add(transaction);
 
 
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transaction.csv", true));
-            bufferedWriter.write(String.format("%s|%s|%s|%s|%.2f",
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true));
+            bufferedWriter.write(String.format("\n%s|%s|%s|%s|%.2f",
                     transaction.getDate(),
                     transaction.getTime(),
                     transaction.getDescription(),
@@ -139,36 +150,54 @@ public class FinancialTransactions {
     }
 
     public static void makePayment() {
-
-        System.out.println("1) What is your debit card number?");
-        String cardNumber = inputScanner.nextLine();
-
-        System.out.println("2) What is the name on the debit card?");
-        String nameonCard = inputScanner.nextLine();
-
-        System.out.println("3) What is the expiration date of your debit card? (Please enter in MM/YY format)");
-        String expirationDate = inputScanner.nextLine();
-
-        System.out.println("4) What is the CVV number on the back of your debit card?");
-        String cvvNumber = inputScanner.nextLine();
-
-        System.out.println("5) How much would you like to pay?");
-        double payment = inputScanner.nextInt();
-        inputScanner.nextLine();
-
-        System.out.println("6) What is the billing address associated with your debit card? (Street, City, State, Zip Code)");
-        String address = inputScanner.nextLine();
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 
-        System.out.println("7)What is your contact phone number or email address for confirmation?");
-        String emailorPhone = inputScanner.nextLine();
+        System.out.print("Please enter today's date ");
+        inputScanner = new Scanner(System.in);
+        String date = inputScanner.nextLine();
+        LocalDate localDate = LocalDate.parse(date, dateFormatter);
 
-        //need to work on it
 
-        System.out.println("0) Back");
-        System.out.print("Command: ");
+        System.out.println("Please enter the time");
+        inputScanner = new Scanner(System.in);
+        String time = inputScanner.nextLine();
+        LocalTime localTime = LocalTime.parse(time, timeFormatter);
 
+        System.out.println("Please enter the description");
+        inputScanner = new Scanner(System.in);
+        String description = inputScanner.nextLine();
+
+        System.out.println("Please enter the vendor");
+        inputScanner = new Scanner(System.in);
+        String vendor = inputScanner.nextLine();
+
+        System.out.println("Please enter the amount");
+        inputScanner = new Scanner(System.in);
+        double amount = inputScanner.nextInt();
+
+        TransactionRecord transaction = new TransactionRecord(localDate, localTime, description, vendor, amount);
+        transactions.add(transaction);
+
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("transactions.csv", true));
+            bufferedWriter.write(String.format("\n%s|%s|%s|%s|%.2f",
+                    transaction.getDate(),
+                    transaction.getTime(),
+                    transaction.getDescription(),
+                    transaction.getVendor(),
+                    transaction.getAmount()
+
+            ));
+            bufferedWriter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     public static void displayMenu() {
 
@@ -179,13 +208,14 @@ public class FinancialTransactions {
 
             System.out.println("Welcome to the Ledger System! Please choose an option:");
             System.out.println("1) Display all entries ");
-            System.out.println("2) Display only deposits");
-            System.out.println("3) Display the negative balance");
-            System.out.println("4) Show reports");
+            System.out.println("2) Display only the entries that are deposits into the account ");
+            System.out.println("3) Display only the negative entries ");
+            System.out.println("4) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search");
 
             System.out.println("0) Back");
             System.out.print("Command: ");
 
+            inputScanner = new Scanner(System.in);
             subMenuCommand = inputScanner.nextInt();
 
             switch (subMenuCommand) {
@@ -257,6 +287,7 @@ public class FinancialTransactions {
             System.out.println("0) Back");
             System.out.print("Command: ");
 
+            inputScanner = new Scanner(System.in);
             newMenuCommand = inputScanner.nextInt();
 
             switch (newMenuCommand) {
@@ -274,12 +305,6 @@ public class FinancialTransactions {
                     break;
                 case 5:
                     searchbyVendor();
-                    break;
-                case 6:
-                    previousScreen();
-                    break;
-                case 7:
-                    homePage();
                     break;
                 case 0:
                     System.out.println("Going back to the main menu...");
@@ -299,13 +324,8 @@ public class FinancialTransactions {
 
 
         for (int i = 0; i < transactions.size(); i++) {
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            String transactions1 = String.valueOf(transactions.get(i).getDate());
-
-            LocalDate localDate = LocalDate.parse(transactions1, dateFormatter);
-
-            int transactionsMonth = localDate.getMonthValue();
-            int transactionsYear = localDate.getYear();
+            int transactionsMonth = transactions.get(i).getDate().getMonthValue();
+            int transactionsYear = transactions.get(i).getDate().getYear();
 
             if (currentMonth == transactionsMonth && currentYear == transactionsYear){
                 System.out.println(transactions.get(i));
@@ -317,35 +337,71 @@ public class FinancialTransactions {
 
     public static void previousMonth() {
 
+        LocalDate today = LocalDate.now();
+        int currentMonth = today.getMonthValue()-1;
+        int currentYear = today.getYear();
+
+
+        for (int i = 0; i < transactions.size(); i++) {
+            int transactionsMonth = transactions.get(i).getDate().getMonthValue();
+            int transactionsYear = transactions.get(i).getDate().getYear();
+
+            if (currentMonth == transactionsMonth && currentYear == transactionsYear){
+                System.out.println(transactions.get(i));
+            }
+
+        }
+
+
     }
 
     public static void yearDate() {
+
+        LocalDate today = LocalDate.now();
+        int currentYear = today.getYear();
+
+
+        for (int i = 0; i < transactions.size(); i++) {
+            int transactionsYear = transactions.get(i).getDate().getYear();
+
+            if (currentYear == transactionsYear){
+                System.out.println(transactions.get(i));
+            }
+
+        }
+
+
 
     }
 
     public static void previousYear() {
 
+        LocalDate today = LocalDate.now();
+        int currentYear = today.getYear() - 1;
+
+
+        for (int i = 0; i < transactions.size(); i++) {
+            int transactionsYear = transactions.get(i).getDate().getYear();
+
+            if (currentYear == transactionsYear){
+                System.out.println(transactions.get(i));
+            }
+
+        }
+
     }
 
     public static void searchbyVendor () {
 
-        System.out.println(" Search by Vendor");
-        System.out.println("Please provide the vendor you're looking for...");
-        System.out.print("Vendor: ");
-        String typeToSearch = inputScanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter the vendor name to search: ");
+            String vendor = scanner.nextLine();
 
-        for (int i = 0; i < transactions.size(); i++) {
-            TransactionRecord transaction1 = transactions.get(i);
-            if (transaction1.getVendor().equalsIgnoreCase(typeToSearch)) {
-                System.out.println(transaction1);
+            System.out.println("Transactions for Vendor: " + vendor);
+            for (TransactionRecord transaction : transactions) {
+                if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+                    System.out.println(transaction);
             }
         }
-    }
-    public static void previousScreen() {
-
-    }
-
-    public static void homePage() {
-
     }
 }
