@@ -55,16 +55,6 @@ public class TransactionRecord {
         this.amount = amount;
     }
 
-    @Override
-    public String toString() {
-        return "LearnToCode_Capstones{" +
-                "date=" + date +
-                ", time=" + time +
-                ", description='" + description + '\'' +
-                ", vendor='" + vendor + '\'' +
-                ", amount=" + amount +
-                '}';
-    }
 
     public TransactionRecord(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
@@ -72,12 +62,17 @@ public class TransactionRecord {
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
+    }
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "TransactionRecord{" +
+                "date=" + date +
+                ", time=" + time +
+                ", description='" + description + '\'' +
+                ", vendor='" + vendor + '\'' +
+                ", amount=" + amount +
+                '}';
     }
 }
 

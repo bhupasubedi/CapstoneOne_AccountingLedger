@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,6 +20,7 @@ public class FinancialTransactions {
 
 
     public static void main(String[] args) {
+        loadTransactionsFromFile();
 
         // ***** BEGIN Create menu Instructions *****
 
@@ -46,7 +48,7 @@ public class FinancialTransactions {
                     makePayment();
                     break;
                 case 3:
-//                     displayMenu();
+                    displayMenu();
                     break;
                 case 0:
                     System.out.println("Exiting");
@@ -59,25 +61,12 @@ public class FinancialTransactions {
         } while (mainMenuCommand != 0);
 
 
-        loadTransactions();
-        loadTransactionsFromFile();
-
-    }
-
-    public static void loadTransactions() {
-
-        LocalDate date = LocalDate.parse("2023-04-15");
-        LocalTime time = LocalTime.parse("10:13:25");
-
-        TransactionRecord transcation1 = new TransactionRecord("date", "time", "ergonomic keyboard", "Amazon", -89.50);
-
-        transactions.add(transcation1);
     }
 
     public static void loadTransactionsFromFile() {
 
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("transaction.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("transactions.csv"));
 
             String firstline = bufferedReader.readLine();
             String input;
@@ -181,7 +170,7 @@ public class FinancialTransactions {
 
     }
 
-    public static void Ledger() {
+    public static void displayMenu() {
 
         int subMenuCommand;
 
@@ -189,19 +178,16 @@ public class FinancialTransactions {
             //// display the sub menu options
 
             System.out.println("Welcome to the Ledger System! Please choose an option:");
-
             System.out.println("1) Display all entries ");
             System.out.println("2) Display only deposits");
             System.out.println("3) Display the negative balance");
             System.out.println("4) Show reports");
-            System.out.println("5) Go back to the previous screen");
-            System.out.println("6) Go to the home page");
 
             System.out.println("0) Back");
             System.out.print("Command: ");
 
-
             subMenuCommand = inputScanner.nextInt();
+
             switch (subMenuCommand) {
                 case 1:
                     displayAllEntries();
@@ -215,12 +201,6 @@ public class FinancialTransactions {
                 case 4:
                     ShowReports();
                     break;
-                case 5:
-                    previousScreen();
-                    break;
-                case 6:
-                    homePage();
-                    break;
                 case 0:
                     System.out.println("Going back to the main menu...");
                     break;
@@ -232,25 +212,140 @@ public class FinancialTransactions {
 
     }
 
-public static void displayAllEntries (){
+    public static void displayAllEntries() {
 
-}
+        System.out.println("Placeholder: Display All");
+        for (int i = 0; i < transactions.size(); i++) {
+            System.out.println(transactions.get(i));
 
-public static void displayDepositsOnly (){
+        }
+    }
 
-}
-public static void  displayNegativeBalance (){
+    public static void displayDepositsOnly() {
 
-}
- public static void ShowReports (){
+        System.out.println("Deposits Only:");
+        for (int i = 0; i < transactions.size(); i++) {
+            TransactionRecord transaction = transactions.get(i);
+            if (transaction.getAmount() > 0) {
+                System.out.println(transaction);
+            }
+        }
+    }
 
- }
+    public static void displayNegativeBalance() {
+        System.out.println("Negative Balance Transactions:");
+        for (TransactionRecord transaction : transactions) {
+            if (transaction.getAmount() < 0) {
+                System.out.println(transaction);
 
- public static void previousScreen () {
+            }
+        }
+    }
 
- }
+    public static void ShowReports() {
+        int newMenuCommand;
 
- public static void  homePage() {
+        do {
+            System.out.println("1) Month To Date");
+            System.out.println("2) Previous Month");
+            System.out.println("3) Year To Date");
+            System.out.println("4) Previous Year");
+            System.out.println("5) Search by Vendor");
+            System.out.println("5) Go back to the previous screen");
+            System.out.println("6) Go to the home page");
 
- }
+            System.out.println("0) Back");
+            System.out.print("Command: ");
+
+            newMenuCommand = inputScanner.nextInt();
+
+            switch (newMenuCommand) {
+                case 1:
+                    monthDate();
+                    break;
+                case 2:
+                    previousMonth();
+                    break;
+                case 3:
+                    yearDate();
+                    break;
+                case 4:
+                    previousYear();
+                    break;
+                case 5:
+                    searchbyVendor();
+                    break;
+                case 6:
+                    previousScreen();
+                    break;
+                case 7:
+                    homePage();
+                    break;
+                case 0:
+                    System.out.println("Going back to the main menu...");
+                    break;
+                default:
+                    System.out.println("Command not found. Try again");
+            }
+
+        } while (newMenuCommand != 0);
+
+    }
+
+    public static void monthDate() {
+        LocalDate today = LocalDate.now();
+        int currentMonth = today.getMonthValue();
+        int currentYear = today.getYear();
+
+
+        for (int i = 0; i < transactions.size(); i++) {
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String transactions1 = String.valueOf(transactions.get(i).getDate());
+
+            LocalDate localDate = LocalDate.parse(transactions1, dateFormatter);
+
+            int transactionsMonth = localDate.getMonthValue();
+            int transactionsYear = localDate.getYear();
+
+            if (currentMonth == transactionsMonth && currentYear == transactionsYear){
+                System.out.println(transactions.get(i));
+            }
+
+        }
+
+    }
+
+    public static void previousMonth() {
+
+    }
+
+    public static void yearDate() {
+
+    }
+
+    public static void previousYear() {
+
+    }
+
+    public static void searchbyVendor () {
+
+        System.out.println(" Search by Vendor");
+        System.out.println("Please provide the vendor you're looking for...");
+        System.out.print("Vendor: ");
+        String typeToSearch = inputScanner.nextLine();
+
+        for (int i = 0; i < transactions.size(); i++) {
+            TransactionRecord transaction1 = transactions.get(i);
+            if (transaction1.getVendor().equalsIgnoreCase(typeToSearch)) {
+                System.out.println(transaction1);
+            }
+        }
+    }
+    public static void previousScreen() {
+
+    }
+
+    public static void homePage() {
+
+    }
 }
