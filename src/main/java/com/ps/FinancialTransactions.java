@@ -26,7 +26,6 @@ public class FinancialTransactions {
 
         displayHomeMenu();
 
-
     }
 
     private static void displayHomeMenu() {
