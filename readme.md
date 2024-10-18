@@ -31,7 +31,7 @@ or checking negative amounts. It keeps asking for input until the user decides t
 The reports section provides users with a dedicated screen to access various pre-defined reports or conduct 
 custom searches on their transactions. Users can view transactions for the current month, the previous month, 
 the current year, or the previous year, allowing for easy tracking and analysis of their financial activities over time.
-![report4.png](photos%2Freport4.png)![monthtodate.png](photos%2Fmonthtodate.png)![previousmonth.png](photos%2Fpreviousmonth.png)![yeartoDate.png](photos%2FyeartoDate.png)![previousyear4.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fpreviousyear4.png)
+![report4.png](photos%2Freport4.png)![monthtodate.png](photos%2Fmonthtodate.png)![previousmonth.png](photos%2Fpreviousmonth.png)![yeartoDate.png](photos%2FyeartoDate.png)![previousyear4.png](photos%2Fpreviousyear4.png) ![previousyear4.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fpreviousyear4.png)
 ![searchbyVendor.png](photos%2FsearchbyVendor.png)![backMenu.png](photos%2FbackMenu.png)
 
 
