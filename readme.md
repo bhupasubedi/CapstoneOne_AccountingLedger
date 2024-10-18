@@ -1,4 +1,1 @@
-
-## Bhupa
-
-![Home screen](photos/home.png)
+![12list.png](photos%2F12list.png)
