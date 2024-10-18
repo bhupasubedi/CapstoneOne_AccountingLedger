@@ -25,15 +25,18 @@ The submenu lets users choose what they want to do with their transactions, like
 or checking negative amounts. It keeps asking for input until the user decides to go back to the main menu.
 
 ![Ledger1.png](photos%2FLedger1.png)![Ledger2.png](photos%2FLedger2.png)![Ledger3.png](photos%2FLedger3.png)
-![report4.png](photos%2Freport4.png)
+![report4.png]
 
 ## Report
 The reports section provides users with a dedicated screen to access various pre-defined reports or conduct 
 custom searches on their transactions. Users can view transactions for the current month, the previous month, 
 the current year, or the previous year, allowing for easy tracking and analysis of their financial activities over time.
-![report4.png](photos%2Freport4.png) ![Ledger1.png](photos%2FLedger1.png)![Ledger2.png](photos%2FLedger2.png)![Ledger3.png](photos%2FLedger3.png)
-![yeartoDate.png](photos%2FyeartoDate.png)!![previousmonth.png](photos%2Fpreviousmonth.png)![searchbyVendor.png](photos%2FsearchbyVendor.png)
-![backMenu.png](photos%2FbackMenu.png)
+![report4.png](photos%2Freport4.png)![monthtodate.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fmonthtodate.png)
+![monthtodate.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fmonthtodate.png)
+![previousmonth2.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fpreviousmonth2.png)
+![previousyear4.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fpreviousyear4.png)
+![searchbyvendor5.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fsearchbyvendor5.png)
+![yeartodate3.png](..%2F..%2F..%2F..%2FDesktop%2FCapstone1%2Fyeartodate3.png)![backMenu.png](photos%2FbackMenu.png)
 
 ## Interesting code
 An interesting part of the project is the code that saves transactions to a CSV file. It uses a FileWriter to write
