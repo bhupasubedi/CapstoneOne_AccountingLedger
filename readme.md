@@ -21,7 +21,7 @@ This information is then saved to a list and appended to a CSV file for future r
 ![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)
 
 
-## submenu
+## Submenu
 The submenu lets users choose what they want to do with their transactions, like viewing all entries, seeing only deposits,
 or checking negative amounts. It keeps asking for input until the user decides to go back to the main menu.
 
