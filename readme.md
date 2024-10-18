@@ -32,3 +32,8 @@ custom searches on their transactions. Users can view transactions for the curre
 the current year, or the previous year, allowing for easy tracking and analysis of their financial activities over time.
 ![report4.png](photos%2Freport4.png) ![monthtodate.png](photos%2Fmonthtodate.png)![previousmonth.png](photos%2Fpreviousmonth.png)
 ![searchbyVendor.png](photos%2FsearchbyVendor.png)![backMenu.png](photos%2FbackMenu.png)
+
+## Interesting code
+An interesting part of the project is the code that saves transactions to a CSV file. It uses a FileWriter to write
+each transaction's details, making it easy to keep track of finances.
+![last.png](photos%2Flast.png)
