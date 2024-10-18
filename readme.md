@@ -8,8 +8,15 @@ the data saved for future use.
 
 ## Features
 Add Deposits and Payments: Users can add new financial transactions, which are stored in a CSV file.
+
 View Ledger: Users can view all transactions, only deposits, or only negative transactions.
+
 Reporting: Generate reports for specific time periods (month-to-date, previous month, etc.) and search by vendor.
 
 ## Home menu
-![addingDeposit.png](photos%2FaddingDeposit.png)![12list.png](photos%2F12list.png)
+The  method allows the user to input a deposit transaction by entering the date, time, description,
+vendor, and amount. This information is then saved to a list and appended to a CSV file for future reference.
+![addingDeposit.png](photos%2FaddingDeposit.png)![12list.png](photos%2F12list.png)![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)
+
+## Ledger 
+![Ledger1.png](photos%2FLedger1.png)![Ledger2.png](photos%2FLedger2.png)![Ledger3.png](photos%2FLedger3.png)
