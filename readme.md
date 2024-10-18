@@ -16,9 +16,8 @@ Reporting: Generate reports for specific time periods (month-to-date, previous m
 ## Home menu
 The  method allows the user to input a deposit transaction by entering the date, time, description, vendor, and amount. 
 This information is then saved to a list and appended to a CSV file for future reference.
+![addingDeposit.png](photos%2FaddingDeposit.png)![12list.png](photos%2F12list.png)![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)
 
-![addingDeposit.png](photos%2FaddingDeposit.png)! [12list.png](photos%2F12list.png)
-![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)
 
 
 ## Submenu
