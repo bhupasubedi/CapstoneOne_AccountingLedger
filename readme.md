@@ -18,5 +18,17 @@ The  method allows the user to input a deposit transaction by entering the date,
 vendor, and amount. This information is then saved to a list and appended to a CSV file for future reference.
 ![addingDeposit.png](photos%2FaddingDeposit.png)![12list.png](photos%2F12list.png)![afterAddingtheDeposit.png](photos%2FafterAddingtheDeposit.png)
 
-## Ledger 
+
+## submenu
+The submenu lets users choose what they want to do with their transactions, like viewing all entries, seeing only deposits,
+or checking negative amounts. It keeps asking for input until the user decides to go back to the main menu.
+
 ![Ledger1.png](photos%2FLedger1.png)![Ledger2.png](photos%2FLedger2.png)![Ledger3.png](photos%2FLedger3.png)
+![report4.png](photos%2Freport4.png)
+
+## Report
+The reports section provides users with a dedicated screen to access various pre-defined reports or conduct 
+custom searches on their transactions. Users can view transactions for the current month, the previous month, 
+the current year, or the previous year, allowing for easy tracking and analysis of their financial activities over time.
+![report4.png](photos%2Freport4.png) ![monthtodate.png](photos%2Fmonthtodate.png)![previousmonth.png](photos%2Fpreviousmonth.png)
+![searchbyVendor.png](photos%2FsearchbyVendor.png)![backMenu.png](photos%2FbackMenu.png)
