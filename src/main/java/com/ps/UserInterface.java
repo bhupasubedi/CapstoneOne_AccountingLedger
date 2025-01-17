@@ -1,5 +1,6 @@
 package com.ps;
 
+import com.ps.data.ArrayListToFile;
 import com.ps.data.TransactionDaoImpl;
 import com.ps.enums.LedgerMenuOption;
 import com.ps.enums.MainMenuOption;
@@ -175,16 +176,43 @@ public class UserInterface {
     private static void handleGetDebits() {
         List<Transaction> transactions = dao.getCreditsOrDebits(false);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handleGetCredits() {
         List<Transaction> transactions = dao.getCreditsOrDebits(true);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handleGetAll() {
         List<Transaction> transactions = dao.getAll();
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handleSearchById() {
@@ -199,6 +227,15 @@ public class UserInterface {
         int year = LocalDate.now().getYear();
         List<Transaction> transactions = dao.getByMonth(month, year);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handlePreviousMonth() {
@@ -213,18 +250,45 @@ public class UserInterface {
         }
         List<Transaction> transactions = dao.getByMonth(month, year);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handleYearToDate() {
         int year = LocalDate.now().getYear();
         List<Transaction> transactions = dao.getByYear(year);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handlePreviousYear() {
         int year = LocalDate.now().getYear() -1;
         List<Transaction> transactions = dao.getByYear(year);
         printFormattedTable(transactions);
+        System.out.println("Save results to a csv? Yes (y) or No (n)");
+        String saveOption = dataInput.nextLine();
+        switch (saveOption) {
+            case "y":
+                ArrayListToFile.createFile(transactions);
+                break;
+            case "n":
+                break;
+        }
     }
 
     private static void handleCustomSearch() {
