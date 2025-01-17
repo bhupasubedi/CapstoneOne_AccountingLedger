@@ -1,23 +1,35 @@
-package com.ps;
-
+package com.ps.models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class TransactionRecord {
-
-
+public class Transaction {
+    // Attributes
+    private int transactionId;
     private LocalDate date;
     private LocalTime time;
     private String description;
     private String vendor;
     private double amount;
 
-    public TransactionRecord(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+    public Transaction() {}
+
+    public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
         this.time = time;
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
+    }
+
+    // Getters & Setters
+
+
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public LocalDate getDate() {
@@ -60,15 +72,9 @@ public class TransactionRecord {
         this.amount = amount;
     }
 
+    // toString()
     @Override
     public String toString() {
-        return "TransactionRecord{" +
-                "date=" + date +
-                ", time=" + time +
-                ", description='" + description + '\'' +
-                ", vendor='" + vendor + '\'' +
-                ", amount=" + amount +
-                '}';
+        return String.format("Date: %s Time: %s | Description: %s, Vendor: %s, Amount: $%.2f\n",date,time,description,vendor,amount);
     }
 }
-
