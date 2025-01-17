@@ -173,7 +173,43 @@ public class TransactionDaoImpl implements TransactionDaoInt {
 
     @Override
     public List<Transaction> customSearch(Search search) {
-        return List.of();
+        List<Transaction> transactions = new ArrayList<>();
+        String query = "SELECT * FROM transactions WHERE";
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ) {
+
+            if (search.getMinAmount() != 0) {
+                query += "amount >= ? AND ";
+            }
+
+            if (search.getMaxAmount() != 0) {
+                query += "amount <= ? AND ";
+            }
+
+            if (search.getDescription() != null) {
+                query += "description LIKE %? AND ";
+            }
+
+            if (search.getVendor() != null) {
+                query += "vendor LIKE %? AND ";
+            }
+
+            if(search.getStartDate() != null) {
+                query += "`date` > ? AND ";
+            }
+
+            if(search.getEndDate() != null) {
+                query += "`date` < ?";
+            }
+
+        } catch (SQLException e) {
+             e.printStackTrace();
+        }
+
+        return transactions;
     }
 
     protected Transaction mapTransaction(ResultSet resultSet) throws SQLException

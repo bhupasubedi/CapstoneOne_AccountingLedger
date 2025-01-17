@@ -3,8 +3,8 @@ package com.ps.models;
 import java.time.LocalDate;
 
 public class Search {
-    private int minAmount;
-    private int maxAmount;
+    private double minAmount;
+    private double maxAmount;
     private LocalDate startDate;
     private LocalDate endDate;
     private String vendor;
@@ -21,19 +21,19 @@ public class Search {
         this.description = description;
     }
 
-    public int getMinAmount() {
+    public double getMinAmount() {
         return minAmount;
     }
 
-    public void setMinAmount(int minAmount) {
+    public void setMinAmount(double minAmount) {
         this.minAmount = minAmount;
     }
 
-    public int getMaxAmount() {
+    public double getMaxAmount() {
         return maxAmount;
     }
 
-    public void setMaxAmount(int maxAmount) {
+    public void setMaxAmount(double maxAmount) {
         this.maxAmount = maxAmount;
     }
 

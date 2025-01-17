@@ -3,6 +3,7 @@ package com.ps;
 import com.ps.data.TransactionDaoImpl;
 import com.ps.enums.LedgerMenuOption;
 import com.ps.enums.MainMenuOption;
+import com.ps.models.Search;
 import com.ps.models.Transaction;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -23,7 +24,7 @@ public class UserInterface {
 
     public static void mainMenu(String username, String password) throws InputMismatchException {
         try {
-            dataSource.setUrl("jdbc:mysql://localhost:3306/ledger_db");
+            dataSource.setUrl("jdbc:mysql://localhost:3306/transactions_db");
             dataSource.setUsername(username);
             dataSource.setPassword(password);
 
@@ -102,12 +103,18 @@ public class UserInterface {
 
         System.out.println("Enter a description: ");
         String description = dataInput.nextLine();
+        if (cancelInput(description)) return;
+
         System.out.println("Enter a vendor: ");
         String vendor = dataInput.nextLine();
-        System.out.println("Enter an amount: ");
-        double amount = -Math.abs(dataInput.nextDouble());
+        if (cancelInput(description)) return;
 
-        dao.create(new Transaction(date,time,description,vendor,amount));
+        System.out.println("Enter an amount: ");
+        String amount = dataInput.nextLine();
+        if (cancelInput(description)) return;
+        double parsedAmount = -Double.parseDouble(amount);
+
+        dao.create(new Transaction(date,time,description,vendor,parsedAmount));
         System.out.println("Transaction has been recorded successfully!");
     }
 
@@ -221,7 +228,50 @@ public class UserInterface {
     }
 
     private static void handleCustomSearch() {
-        System.out.println("");
+        System.out.println("At any point, type \"cancel\" to go back. You can also press enter to skip input.");
+        Search search = new Search();
+
+        System.out.println("Minimum amount: ");
+        String min = dataInput.nextLine();
+        if (cancelInput(min)) return;
+        if (min.isBlank()) {
+            min = "0";
+        }
+        double parsedMin = Double.parseDouble(min);
+        search.setMinAmount(parsedMin);
+
+        System.out.println("Maximum amount: ");
+        String max = dataInput.nextLine();
+        if (cancelInput(max)) return;
+        if (max.isBlank()) {
+            max = "0";
+        }
+        double parsedMax = Double.parseDouble(max);
+        search.setMaxAmount(parsedMax);
+
+        System.out.println("Start date (yyyy/MM/dd): ");
+        String startDate = dataInput.nextLine();
+        if (cancelInput(startDate)) return;
+        LocalDate parsedStartDate = LocalDate.parse(startDate);
+        search.setStartDate(parsedStartDate);
+
+        System.out.println("End date (yyyy/MM/dd): ");
+        String endDate = dataInput.nextLine();
+        if (cancelInput(endDate)) return;
+        LocalDate parsedEndDate = LocalDate.parse(endDate);
+        search.setEndDate(parsedEndDate);
+
+        System.out.println("Description (will find partial matches): ");
+        String description = dataInput.nextLine();
+        if (cancelInput(description)) return;
+        search.setDescription(description);
+
+        System.out.println("Vendor (will find partial matches): ");
+        String vendor = dataInput.nextLine();
+        if (cancelInput(vendor)) return;
+        search.setVendor(vendor);
+
+        List<Transaction> transactions = dao.customSearch(search);
     }
 
     private static void printFormattedTable(List<Transaction> transactions) {
