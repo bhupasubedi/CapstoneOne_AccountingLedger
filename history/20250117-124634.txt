@@ -1,0 +1,102 @@
+ ID    Date          Time       Description                   Vendor             Amount
+----- ------------- ---------- ----------------------------- ------------------ ----------
+1      2023-02-03    10:32:11   Groceries                     Netflix            $776.69   
+
+2      2023-06-24    04:02:06   Groceries                     Lyft               $933.40   
+
+3      2023-09-05    18:08:49   Coffee                        Burger King        $987.67   
+
+4      2023-03-29    23:05:49   Utilities                     Starbucks          $971.12   
+
+5      2023-09-30    01:35:16   Travel booking                Amazon             $977.74   
+
+6      2023-11-23    20:16:40   Ride share                    Starbucks          $476.79   
+
+7      2023-07-20    01:56:53   Electronics                   BP                 $978.80   
+
+8      2023-08-14    05:41:50   Coffee                        Walmart            $561.00   
+
+9      2023-09-12    08:52:16   Ride share                    Home Depot         $927.58   
+
+10     2023-11-23    02:30:47   Coffee                        Netflix            $942.74   
+
+11     2023-10-12    21:27:20   Dining out                    Uber               $336.62   
+
+12     2023-11-18    17:47:18   Coffee                        Google Play        $493.27   
+
+13     2023-09-28    02:22:38   Ride share                    Home Depot         $300.95   
+
+14     2023-06-01    04:53:42   Subscription                  McDonalds          $686.69   
+
+15     2023-11-01    14:32:02   Electronics                   Shell              $458.23   
+
+16     2023-04-18    21:10:41   Fuel                          BP                 $82.99    
+
+17     2023-11-04    22:56:53   Ride share                    BP                 $285.09   
+
+18     2023-09-23    10:43:49   Gaming                        Target             $799.61   
+
+19     2023-08-27    14:47:17   Travel booking                Apple Store        $63.62    
+
+20     2023-02-27    20:55:55   Groceries                     Google Play        $401.69   
+
+21     2023-08-03    11:46:45   Electronics                   Google Play        $574.38   
+
+22     2023-10-30    08:29:10   Dining out                    7-Eleven           $256.30   
+
+23     2023-09-15    19:29:49   Utilities                     BP                 $745.41   
+
+24     2023-02-13    14:33:13   Groceries                     Target             $273.78   
+
+25     2023-10-26    21:47:20   Coffee                        Costco             $351.03   
+
+26     2023-12-01    14:46:56   Travel booking                Booking.com        $684.87   
+
+27     2023-06-11    22:31:38   Gaming                        Shell              $104.45   
+
+28     2023-06-22    13:08:07   Ride share                    Costco             $67.76    
+
+29     2023-09-24    06:33:44   Electronics                   Walmart            $787.47   
+
+30     2023-01-06    20:49:34   Groceries                     Target             $357.78   
+
+31     2023-09-26    02:53:21   Subscription                  7-Eleven           $905.77   
+
+32     2023-08-03    21:04:26   Travel booking                Walmart            $853.15   
+
+33     2023-10-10    00:01:37   Coffee                        Uber               $443.07   
+
+34     2023-02-11    07:19:28   Subscription                  Starbucks          $32.33    
+
+35     2023-01-17    01:06:41   Dining out                    Booking.com        $707.27   
+
+36     2023-03-27    07:59:40   Utilities                     Airbnb             $374.58   
+
+37     2023-10-20    14:55:48   Travel booking                Home Depot         $774.39   
+
+38     2023-03-13    04:11:34   Subscription                  Target             $665.41   
+
+39     2023-11-23    15:41:57   Gaming                        Booking.com        $618.49   
+
+40     2023-10-07    02:18:08   Gaming                        Airbnb             $877.60   
+
+41     2023-04-30    05:08:07   Travel booking                BP                 $35.77    
+
+42     2023-09-28    11:59:35   Fuel                          McDonalds          $121.23   
+
+43     2023-06-26    01:22:32   Ride share                    Target             $358.65   
+
+44     2023-08-13    11:46:21   Ride share                    Spotify            $886.16   
+
+45     2023-02-11    11:35:41   Ride share                    Steam              $830.88   
+
+46     2023-01-12    17:06:09   Ride share                    Spotify            $305.99   
+
+47     2023-12-02    14:08:25   Utilities                     Amazon             $991.79   
+
+48     2023-09-06    08:28:12   Ride share                    Airbnb             $283.47   
+
+49     2023-09-28    17:46:59   Groceries                     Apple Store        $324.76   
+
+50     2023-06-13    19:11:49   Gaming                        Booking.com        $615.55   
+
